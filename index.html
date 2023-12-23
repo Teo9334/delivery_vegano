@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Vegano</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+    
+    <!-- ICON -->
+    <script src="https://kit.fontawesome.com/e3defecb28.js" crossorigin="anonymous"></script>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:wght@300;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="menu-flotante" id="menu-flotante" style="display: none;">
+        <div>
+            <a href="#" onclick="cerrarMenu()"><span><i class="fa-solid fa-arrow-left"></i> Volver</a>
+            <input type="text" placeholder="Su dirección" id="ubicacion">
+            <button onclick="enviarDatosWhatsapp()">Enviar</button>
+        </div>
+        
+    </div>
+    <div class="contenedor">
+
+        <div class="navbar">
+            <a href="#" id="horarios" onclick="cambiarColor(this)"><i class="fa-solid fa-clock"></i> Horarios</a>
+            <a href="#" id="menu" onclick="cambiarColor(this)" style="color: #ffe054;"><i class="fa-solid fa-burger"></i> Menu</a>
+            <a href="#" id="carrito" onclick="cambiarColor(this)"><i class="fa-solid fa-cart-shopping"></i> Carrito (0)</a>
+        </div>
+
+        <div class="banner-contenedor">
+            <img src="./img/logo.PNG" alt="" class="banner">
+        </div>
+    
+        <div id="contenido">
+
+            <div class="menu-content">
+                <h2>Hamburguesas</h2>
+                <div class="menu">
+                
+                    <div class="card">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-name">
+                                    <h3>Común </h3>
+                                    <h3 style="color: #95ff58;">$260</h3>
+                                </div>
+                                
+                                <p>Hamburguesa Next de Etosha, pepinillo, cebolla picada, ketchup y mostaza</p>
+                                
+                            </div>
+                            
+                            <a onclick="addCarrito(1)">Añadir al carrito</a>
+                        </div>
+                        
+                        
+                        <img src="./img/burger.PNG" alt="" class="burger">
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-name">
+                                    <h3>La Liviana </h3>
+                                    <h3 style="color: #95ff58;">$270</h3>
+                                    
+                                </div>
+                                <p>Hamburguesa Next de Etosha, pepinillo, tomate, lechuga, cebolla picada, zanahoria rallada y mayonesa</p>    
+                            </div>
+                            <a onclick="addCarrito(2)">Añadir al carrito</a>
+                        </div>
+                        
+                        
+                        <img src="./img/burger.PNG" alt="" class="burger">
+                    </div>
+                
+                    <div class="card">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-name">
+                                    <h3>Cheeseburguer </h3>
+                                    <h3 style="color: #95ff58;">$300</h3>
+                                    
+                                </div>
+                                <p>Hamburguesa Next de Etosha, cheddar vegano, pepinillo, cebolla picada, ketchup y mostaza</p>
+                            </div>
+                            
+                            <a onclick="addCarrito(3)">Añadir al carrito</a>
+                        </div>
+                        
+                        
+                        <img src="./img/burger.PNG" alt="" class="burger">
+                    </div>
+                
+                    <div class="card">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-name">
+                                    <h3>Completa </h3>
+                                    <h3 style="color: #95ff58;">$320</h3>
+                                    
+                                </div>
+                                <p>Hamburguesa Next de Etosha, cheddar vegano, muzza vegana, pepinillo, tomate, lechuga, cebolla picada, mayonesa y ketchup</p>
+                            </div>
+                            
+                            <a onclick="addCarrito(4)">Añadir al carrito</a>
+                        </div>
+                        
+                        
+                        <img src="./img/burger.PNG" alt="" class="burger">
+                    </div>
+                </div>
+                
+                <h2>Premium </h2>
+                
+                <div class="menu">
+                    <div class="card">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-name">
+                                    <h3>Doble de riesgo </h3>
+                                    <h3 style="color: #95ff58;">$390</h3>
+                                </div>
+                                
+                                <p>Doble hamburguesa Next de Etosha, doble cheddar vegano, doble muzza vegana, pepinillo, cebolla picada, ketchup y mostaza</p>
+                                
+                            </div>
+                            
+                            <a onclick="addCarrito(5)">Añadir al carrito</a>
+                        </div>
+                        
+                        
+                        <img src="./img/burger.PNG" alt="" class="burger">
+                    </div>
+                
+                    <div class="card">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-name">
+                                    <h3>Sweet candy </h3>
+                                    <h3 style="color: #95ff58;">$390</h3>
+                                </div>
+                                
+                                <p>Doble hamburguesa Next de Etosha, cheddar vegano, muzza vegana, cebolla caramelizada, morrón salteado, jarabe de agave, salsa barbacoa</p>
+                                
+                            </div>
+                            
+                            <a onclick="addCarrito(6)">Añadir al carrito</a>
+                        </div>
+                        
+                        
+                        <img src="./img/burger.PNG" alt="" class="burger">
+                    </div>
+                
+                    <div class="card">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-name">
+                                    <h3>Hat trick </h3>
+                                    <h3 style="color: #95ff58;">$460</h3>
+                                </div>
+                                
+                                <p>Triple hamburguesa Next de Etosha, triple cheddar vegano, pepinillo, aceitunas picadas,cebolla picada, lechuga, tomate, ketchup y mostaza</p>
+                                
+                            </div>
+                            
+                            <a onclick="addCarrito(7)">Añadir al carrito</a>
+                        </div>
+                        
+                        
+                        <img src="./img/burger.PNG" alt="" class="burger">
+                    </div>
+                
+                    <div class="card">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-name">
+                                    <h3>Tríada Mística </h3>
+                                    <h3 style="color: #95ff58;">$460</h3>
+                                </div>
+                                
+                                <p>Triple hamburguesa Next de Etosha, triple cheddar vegano, triple muzza vegana, cebolla caramelizada, mayonesa, tomate, mostaza y salsa barbacoa</p>
+                                
+                            </div>
+                            
+                            <a onclick="addCarrito(8)">Añadir al carrito</a>
+                        </div>
+                        
+                        
+                        <img src="./img/burger.PNG" alt="" class="burger">
+                    </div>
+                </div>
+                
+                <h2>Guarniciones</h2>
+                
+                <div class="menu">
+                    <div class="card">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-name">
+                                    <h3>Porciones de fritas </h3>
+                                    <h3 style="color: #95ff58;">$160</h3>
+                                </div>
+                            </div>
+                            
+                            <a onclick="addCarrito(9)">Añadir al carrito</a>
+                        </div>
+                        
+                        
+                        <img src="./img/papasFritas.jpg" alt="" class="burger">
+                    </div>
+                
+                    <div class="card">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-name">
+                                    <h3>Aros de cebolla </h3>
+                                    <h3 style="color: #95ff58;">$180</h3>
+                                </div>
+                            </div>
+                            
+                            <a onclick="addCarrito(10)">Añadir al carrito</a>
+                        </div>
+                        
+                        
+                        <img src="./img/arosCebolla.jpg" alt="" class="burger">
+                    </div>
+                
+                    <div class="card">
+                        <div class="card-content">
+                            <div>
+                                <div class="card-name">
+                                    <h3>Nuggets veganas </h3>
+                                    <h3 style="color: #95ff58;">$200</h3>
+                                </div>
+                            </div>
+                            
+                            <a onclick="addCarrito(11)">Añadir al carrito</a>
+                        </div>
+                        
+                        
+                        <img src="./img/nuggets.jpg" alt="" class="burger">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src="./js/app.js">
+        
+
+    </script>
+</body>
+</html>
