@@ -5,6 +5,7 @@ const horarios = document.getElementById("horarios")
 const menu = document.getElementById("menu")
 const carrito = document.getElementById("carrito")
 const menu_flotante = document.getElementById("menu-flotante")
+const alert_add = document.getElementById("alert-add")
 const ubicacion = document.getElementById("ubicacion")
 
 let lista = []
@@ -48,7 +49,7 @@ function enviarDatosWhatsapp(){
     let direccion = ubicacion.value
 
     if(direccion != ""){
-        let texto = "Hola!. Para pedir"
+        let texto = "Hola! Para pedir"
 
         if(lista.includes(1)){
             let cantidad = contador(lista,1)
@@ -97,23 +98,80 @@ function enviarDatosWhatsapp(){
             }
         }
 
-        texto += `. 
-    Para ${direccion}`
+        // Comprobar para añadir el "y" 
+        if(repeatNum(lista)){
+            texto += `.
+Para ${direccion}`
+        }else{
+            texto = modText(texto)+`
+Para ${direccion}`
+        }
 
         window.location.href = `https://wa.me/+59894352630/?text=${texto}`;
 
         cerrarMenu()
+
     }
+}
+
+// comprobar si un array se repiten los números
+function repeatNum(lista){
+
+    num = lista[0]
+    done = true
+
+    for(i=0; i<lista.length; i++){
+        if(lista[i] !== num){
+            done = false
+        }    
+    }
+
+    return done
 
 }
 
+// añadir "y"
+function modText(texto){
+    lista = texto.split(",");
+    txt = lista[0].trim();
+
+    if(lista.length>1){
+        for(i=1;i<lista.length-1;i++){
+            txt+= ", " + lista[i].trim();
+        }
+        txt+= " y " + lista[lista.length-1].trim() + ".";
+    }
+    else{
+        txt += ".";
+    }
+    return txt;
+}
+
+// Variable global
+let timer;
+
 // AÑADIR AL CARRITO
 function addCarrito(num){
+
+    alert_add.classList.add('mostrar');
+
+    alert_add.style.display = "";
+
     lista.push(num)
 
     let cantidad = lista.length
 
     carrito.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Carrito (${cantidad})`
+
+    // Eliminar si el temporizador está marchando
+    if(timer){
+        clearTimeout(timer)
+    }
+    
+    // Establecer un temporizador para desaparecer después de 3 segundos
+    timer = setTimeout(function() {
+        alert_add.classList.remove('mostrar');
+    }, 3000); // Tiempo que va a esperar antes de ejecutar la función
 }
 
 // ELIMINAR DEL CARRITO
@@ -129,14 +187,23 @@ function delCarrito(num){
 
 }
 
+// CAMBIAR COLOR SOLO A CARRITO
+function cambiarCarrito(){
+    datosCarrito()
+    horarios.style.color = "";
+    menu.style.color = "";
+    carrito.style.color = "#ffe054";
+}
 
 // CAMBIAR COLORES DE NAVBAR 
 function cambiarColor(e){
+   
     horarios.style.color = "";
     menu.style.color = "";
     carrito.style.color = "";
 
     e.style.color = "#ffe054";
+
 }
 
 // CERRAR MENU
@@ -150,8 +217,13 @@ function hacerPedido(){
     }
 }
 
+
 // CARRITO 
-carrito.addEventListener("click", () =>{
+carrito.addEventListener("click", datosCarrito);
+
+// DATOS
+function datosCarrito(){
+    alert_add.classList.remove('mostrar');
     contenido.innerHTML = `
     <div class="menu-content">
         <h2>Tus pedidos</h2>
@@ -362,7 +434,7 @@ carrito.addEventListener("click", () =>{
         }
         
     });
-})
+}
 
 // MENU
 menu.addEventListener("click", ()=>{

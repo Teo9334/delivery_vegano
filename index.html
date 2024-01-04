@@ -17,14 +17,23 @@
 </head>
 <body>
 
+    <!-- CARTEL PARA ENVIAR DIRECCIÓN -->
     <div class="menu-flotante" id="menu-flotante" style="display: none;">
         <div>
             <a href="#" onclick="cerrarMenu()"><span><i class="fa-solid fa-arrow-left"></i> Volver</a>
             <input type="text" placeholder="Su dirección" id="ubicacion">
             <button onclick="enviarDatosWhatsapp()">Enviar</button>
         </div>
-        
     </div>
+
+    <!-- CARTEL PARA DECIR QUE SE AÑADIÓ AL CARRITO -->
+    <div class="alert-add" id="alert-add">
+        <div>
+            <p>Se añadió al carrito</p>
+            <a href="#" onclick="cambiarCarrito()"><i class="fa-solid fa-cart-shopping"></i> Ir al carrito</a>
+        </div>
+    </div>
+
     <div class="contenedor">
 
         <div class="navbar">
